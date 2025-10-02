@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import logging
 
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]:  %(messages)s:')
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 project_name = "cnnClassifier"
 
@@ -31,11 +31,11 @@ for filePath in list_of_files:
 
     if fileDir != "":
         os.makedirs(fileDir, exist_ok=True)
-        logging.info(f"Creating directory; {fileDir} for the file; {fileName}")
+        logging.info(f"Creating directory: {fileDir} for the file: {fileName}")
     
     if(not os.path.exists(filePath) or os.path.getsize(filePath) == 0):
         with open(filePath, "w") as f:
             pass
-            logging.info(f"Creating empty file; {filePath}")
+            logging.info(f"Creating empty file: {filePath}")
     else:
         logging.info(f"{fileName} file already exists")
